@@ -1,2 +1,14 @@
 #!/bin/bash -e
-docker run --rm --name kafka bitnami/kafka
+docker run --detach --rm \
+	--name kafka \
+	--publish "29092:29092" \
+	--hostname kafka-server \
+	--env KAFKA_CFG_NODE_ID="1" \
+	--env KAFKA_CFG_PROCESS_ROLES="broker,controller" \
+	--env KAFKA_CFG_CONTROLLER_QUORUM_VOTERS="1@kafka-server:9093" \
+	--env KAFKA_CFG_LISTENERS="PLAINTEXT://kafka-server:9092,CONTROLLER://kafka-server:9093,PLAINTEXT_HOST://0.0.0.0:29092" \
+	--env KAFKA_CFG_ADVERTISED_LISTENERS="PLAINTEXT://kafka-server:9092,PLAINTEXT_HOST://localhost:29092" \
+	--env KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP="CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT" \
+	--env KAFKA_CFG_CONTROLLER_LISTENER_NAMES="CONTROLLER" \
+	--env KAFKA_CFG_INTER_BROKER_LISTENER_NAME="PLAINTEXT" \
+	bitnami/kafka
