@@ -1,83 +1,80 @@
 #!/usr/bin/env python
 
-from confluent_kafka.admin import AdminClient
+"""
+List all topics in a kafka server
+"""
+
 import sys
+from confluent_kafka.admin import AdminClient
+
 
 def list_kafka_topics(bootstrap_servers):
     """
     List all Kafka topics.
 
     Args:
-        bootstrap_servers (str): Comma-separated list of broker addresses (host:port)
+        bootstrap_servers (str):
+        Comma-separated list of broker addresses (host:port)
     """
-    try:
-        # Configure the client
-        conf = {'bootstrap.servers': bootstrap_servers}
+    # Configure the client
+    conf = {'bootstrap.servers': bootstrap_servers}
 
-        # Create an Admin client
-        admin_client = AdminClient(conf)
+    # Create an Admin client
+    admin_client = AdminClient(conf)
 
-        # Get cluster metadata
-        metadata = admin_client.list_topics(timeout=10)
+    # Get cluster metadata
+    metadata = admin_client.list_topics(timeout=10)
 
-        print("Available Kafka Topics:")
-        print("-" * 40)
+    print("Available Kafka Topics:")
+    print("-" * 40)
 
-        if not metadata.topics:
-            print("No topics found.")
-            return
+    if not metadata.topics:
+        print("No topics found.")
+        return
 
-        # Sort topics alphabetically for better readability
-        sorted_topics = sorted(metadata.topics.keys())
+    # Sort topics alphabetically for better readability
+    sorted_topics = sorted(metadata.topics.keys())
 
-        for topic_name in sorted_topics:
-            topic_metadata = metadata.topics[topic_name]
-            partition_count = len(topic_metadata.partitions)
+    for topic_name in sorted_topics:
+        topic_metadata = metadata.topics[topic_name]
+        partition_count = len(topic_metadata.partitions)
 
-            print(f"Topic: {topic_name}")
-            print(f"  Partitions: {partition_count}")
+        print(f"Topic: {topic_name}")
+        print(f"  Partitions: {partition_count}")
 
-            # Show partition details
-            for partition_id, partition in topic_metadata.partitions.items():
-                replicas = len(partition.replicas)
-                print(f"    Partition {partition_id}: Leader={partition.leader}, Replicas={replicas}")
+        # Show partition details
+        for part_id, part in topic_metadata.partitions.items():
+            reps = len(part.replicas)
+            print(f"    Part {part_id}: Leader={part.leader}, Reps={reps}")
 
-            print()  # Empty line for readability
-
-    except Exception as e:
-        print(f"Failed to list topics: {e}")
-        sys.exit(1)
 
 def list_topics_simple(bootstrap_servers):
     """
     List all Kafka topics in a simple format (just topic names).
 
     Args:
-        bootstrap_servers (str): Comma-separated list of broker addresses (host:port)
+        bootstrap_servers (str):
+        Comma-separated list of broker addresses (host:port)
     """
-    try:
-        # Configure the client
-        conf = {'bootstrap.servers': bootstrap_servers}
+    # Configure the client
+    conf = {'bootstrap.servers': bootstrap_servers}
 
-        # Create an Admin client
-        admin_client = AdminClient(conf)
+    # Create an Admin client
+    admin_client = AdminClient(conf)
 
-        # Get cluster metadata
-        metadata = admin_client.list_topics(timeout=10)
+    # Get cluster metadata
+    metadata = admin_client.list_topics(timeout=10)
 
-        if not metadata.topics:
-            print("No topics found.")
-            return
+    if not metadata.topics:
+        print("No topics found.")
+        return
 
-        print("Kafka Topics:")
-        for topic_name in sorted(metadata.topics.keys()):
-            print(f"  - {topic_name}")
+    print("Kafka Topics:")
+    for topic_name in sorted(metadata.topics.keys()):
+        print(f"  - {topic_name}")
 
-    except Exception as e:
-        print(f"Failed to list topics: {e}")
-        sys.exit(1)
 
-if __name__ == "__main__":
+def main():
     # Default values
     bootstrap_servers = "localhost:29092"  # Use the external port we mapped
 
@@ -95,3 +92,7 @@ if __name__ == "__main__":
             sys.exit(1)
     else:
         list_kafka_topics(bootstrap_servers)
+
+
+if __name__ == "__main__":
+    main()

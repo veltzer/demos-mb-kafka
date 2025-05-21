@@ -4,3 +4,7 @@ pymakehelper
 pydmt
 pyclassifiers
 pypitools
+pycmdtools
+flake8
+pylint
+mypy
