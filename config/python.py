@@ -1,6 +1,8 @@
 config_requires = []
 dev_requires = []
-install_requires = []
+install_requires = [
+    "confluent-kafka",
+]
 build_requires = [
     "pymakehelper",
     "pydmt",
