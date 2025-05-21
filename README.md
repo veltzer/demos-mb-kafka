@@ -8,7 +8,7 @@ website: https://veltzer.github.io/demos-kafka
 
 ## Build
 
-
+![build](https://github.com/veltzer/demos-kafka/workflows/build/badge.svg)
 
 
 ## Contact
