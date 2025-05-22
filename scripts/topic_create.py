@@ -30,7 +30,7 @@ def create_kafka_topic(bootstrap_servers,
     # Create topic configuration
     topic = NewTopic(
         topic_name,
-        num_parts=num_parts,
+        num_partitions=num_parts,
         replication_factor=replication_factor
     )
 
