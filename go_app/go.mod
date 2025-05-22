@@ -1,4 +1,4 @@
-module kafka-topics-lister
+module kafka-topics-lister.elf
 
 go 1.19
 
