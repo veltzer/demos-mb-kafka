@@ -7,7 +7,7 @@ certifi==2025.4.26
 cffi==1.17.1
 charset-normalizer==3.4.2
 confluent-kafka==2.10.0
-cryptography==45.0.2
+cryptography==45.0.3
 dill==0.4.0
 docutils==0.21.2
 flake8==7.2.0
@@ -23,7 +23,7 @@ jaraco.context==6.0.1
 jaraco.functools==4.1.0
 jeepney==0.9.0
 Jinja2==3.1.6
-jsonschema==4.23.0
+jsonschema==4.24.0
 jsonschema-specifications==2025.4.1
 keyring==25.6.0
 logging_tree==1.10
@@ -34,12 +34,13 @@ MarkupSafe==3.0.2
 mccabe==0.7.0
 mdurl==0.1.2
 more-itertools==10.7.0
-mypy==1.15.0
+mypy==1.16.0
 mypy_extensions==1.1.0
 nh3==0.2.21
 numpy==2.2.6
 packaging==25.0
 pandas==2.2.3
+pathspec==0.12.1
 platformdirs==4.3.8
 pyclassifiers==0.0.19
 pycmdtools==0.0.85
@@ -51,7 +52,7 @@ pyflakes==3.3.2
 Pygments==2.19.1
 pylint==3.3.7
 pylogconf==0.0.38
-pymakehelper==0.0.36
+pymakehelper==0.0.37
 pypitools==0.0.79
 pytconf==0.1.18
 python-dateutil==2.9.0.post0
@@ -67,7 +68,7 @@ rich==14.0.0
 roman-numerals-py==3.1.0
 rpds-py==0.25.1
 SecretStorage==3.3.3
-setuptools==80.8.0
+setuptools==80.9.0
 six==1.17.0
 smmap==5.0.2
 snowballstemmer==3.0.1
