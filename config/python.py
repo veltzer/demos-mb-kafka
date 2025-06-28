@@ -1,17 +1,14 @@
-config_requires = []
-dev_requires = []
-install_requires = [
+""" python deps for this project """
+
+install_requires: list[str] = [
     "confluent-kafka",
 ]
-build_requires = [
-    "pymakehelper",
+build_requires: list[str] = [
     "pydmt",
+    "pymakehelper",
     "pyclassifiers",
-    "pypitools",
     "pycmdtools",
-    "flake8",
     "pylint",
     "mypy",
 ]
-test_requires = []
-requires = config_requires + install_requires + build_requires + test_requires
+requires = install_requires + build_requires
