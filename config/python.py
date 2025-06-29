@@ -6,7 +6,6 @@ install_requires: list[str] = [
 build_requires: list[str] = [
     "pydmt",
     "pymakehelper",
-    "pyclassifiers",
     "pycmdtools",
     "pylint",
     "mypy",
