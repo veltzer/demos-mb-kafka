@@ -5,3 +5,5 @@ pycmdtools
 pydmt
 pylint
 pymakehelper
+pytest
+ruff
