@@ -13,6 +13,7 @@ GitPython==3.1.44
 html5lib==1.1
 idna==3.10
 imagesize==1.4.1
+iniconfig==2.1.0
 isort==6.0.1
 Jinja2==3.1.6
 jsonschema==4.24.0
@@ -29,15 +30,16 @@ packaging==25.0
 pandas==2.3.0
 pathspec==0.12.1
 platformdirs==4.3.8
-pyclassifiers==0.0.19
+pluggy==1.6.0
 pycmdtools==0.0.85
-pydmt==0.3.23
+pydmt==0.3.24
 pyfakeuse==0.0.9
 Pygments==2.19.2
 pylint==3.3.7
 pylogconf==0.0.38
 pymakehelper==0.0.37
 pytconf==0.1.19
+pytest==8.4.1
 python-dateutil==2.9.0.post0
 pytidylib==0.3.2
 pytz==2025.2
@@ -46,6 +48,7 @@ referencing==0.36.2
 requests==2.32.4
 roman-numerals-py==3.1.0
 rpds-py==0.25.1
+ruff==0.12.1
 six==1.17.0
 smmap==5.0.2
 snowballstemmer==3.0.1
