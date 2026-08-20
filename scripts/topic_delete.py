@@ -5,6 +5,7 @@ Delete a topic on a Kafka server
 """
 
 import sys
+
 from confluent_kafka.admin import AdminClient
 
 

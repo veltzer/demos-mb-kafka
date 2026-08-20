@@ -5,6 +5,7 @@ Create a topic in Kafka
 """
 
 import sys
+
 from confluent_kafka.admin import AdminClient, NewTopic
 
 

@@ -5,6 +5,7 @@ List all topics in a kafka server
 """
 
 import sys
+
 from confluent_kafka.admin import AdminClient
 
 
