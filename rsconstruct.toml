@@ -34,9 +34,6 @@ src_dirs = ["scripts", "config"]
 [processor.mypy]
 src_dirs = ["scripts", "config"]
 
-[processor.requirements]
-src_dirs = ["scripts", "config"]
-
 # ─── shell ───────────────────────────────────────────────────────────────────
 
 [processor.shellcheck]
@@ -52,9 +49,3 @@ src_dirs = ["config"]
 
 [processor.taplo]
 src_dirs = ["."]
-
-# Runtime deps so CI installs what the code imports.
-[dependencies]
-pip = [
-    "confluent-kafka",
-]
