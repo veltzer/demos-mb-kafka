@@ -34,8 +34,7 @@ src_dirs = ["scripts", "config"]
 # ─── shell ───────────────────────────────────────────────────────────────────
 
 [processor.shellcheck]
-src_dirs = ["scripts", "config"]
-args = ["--severity=error", "--shell=bash"]
+src_dirs = ["scripts", "config", "go_apps"]
 
 # ─── lua ─────────────────────────────────────────────────────────────────────
 
@@ -50,3 +49,13 @@ src_dirs = ["."]
 # lint the GitHub Actions workflow files with actionlint
 [processor.actionlint]
 src_dirs = [".github/workflows"]
+
+# ─── markdown ────────────────────────────────────────────────────────────────
+
+[processor.rumdl]
+src_files = ["README.md"]
+
+# ─── json ────────────────────────────────────────────────────────────────────
+
+[processor.ijsonlint]
+src_files = ["package.json"]
