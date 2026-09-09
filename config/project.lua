@@ -1,3 +1,3 @@
-NAME = "demos-kafka"
-DESCRIPTION_SHORT = "Demos for kafka queue language"
-KEYWORDS = {"queue", "SQS", "JMS", "Kafka"}
+NAME = "demos-mb-kafka"
+DESCRIPTION_SHORT = "Demos for the Kafka queue server"
+KEYWORDS = {"queue", "sqs", "jms", "kafka"}
