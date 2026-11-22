@@ -5,7 +5,7 @@
 
 description: Demos for the Kafka queue server
 
-project website: https://veltzer.github.io/demos-mb-kafka
+project website: <https://veltzer.github.io/demos-mb-kafka>
 
 author: Mark Veltzer
 
