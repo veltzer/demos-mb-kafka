@@ -33,8 +33,10 @@ def main():
             continue
         if msg.error():
             raise KafkaException(msg.error())
-        key = msg.key().decode("utf-8") if msg.key() else "None"
-        value = msg.value().decode("utf-8")
+        raw_key = msg.key()
+        key = raw_key.decode("utf-8") if raw_key else "None"
+        raw_value = msg.value()
+        value = raw_value.decode("utf-8") if raw_value is not None else "None"
         print("Message received successfully!")
         print(f"Topic: {msg.topic()}")
         print(f"Partition: {msg.partition()}")

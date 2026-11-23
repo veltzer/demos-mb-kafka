@@ -52,7 +52,7 @@ def delete_kafka_topic(bootstrap_servers, topic_name, force=False):
     for topic, future in futures.items():
         future.result()  # The result will be None if deletion was successful
         print(f"Successfully deleted topic: {topic}")
-        return True
+    return True
 
 
 def list_available_topics(bootstrap_servers):
