@@ -9,7 +9,7 @@ import sys
 from confluent_kafka.admin import AdminClient
 
 
-def delete_kafka_topic(bootstrap_servers, topic_name, force=False):
+def delete_kafka_topic(bootstrap_servers, topic_name, *, force=False):
     """
     Delete a Kafka topic by name.
 
@@ -121,7 +121,7 @@ def main():
             sys.exit(1)
 
     # Delete the topic
-    success = delete_kafka_topic(bootstrap_servers, topic_name, force)
+    success = delete_kafka_topic(bootstrap_servers, topic_name, force=force)
 
     if success:
         print(f"Topic '{topic_name}' has been successfully deleted.")
