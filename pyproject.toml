@@ -26,10 +26,6 @@ search-path = [
     "scripts",
     ".",
 ]
-# Third-party libraries without type information.
-ignore-missing-imports = [
-    "confluent_kafka.*",
-]
 
 [tool.pyrefly.errors]
 no-any-return = "error"
