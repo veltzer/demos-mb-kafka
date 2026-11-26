@@ -65,4 +65,4 @@ src_files = ["README.md"]
 # ─── json ────────────────────────────────────────────────────────────────────
 
 [processor.checker.ijsonlint]
-src_files = ["package.json"]
+src_files = ["package-lock.json", "package.json"]
