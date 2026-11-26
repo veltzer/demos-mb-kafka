@@ -30,3 +30,6 @@ search-path = [
 ignore-missing-imports = [
     "confluent_kafka.*",
 ]
+
+[tool.pyrefly.errors]
+no-any-return = "error"
