@@ -4,14 +4,14 @@
 producer script
 """
 
-from confluent_kafka import Producer
+from confluent_kafka import KafkaError, Message, Producer
 
 bootstrap_servers = "localhost:29092"
 topic_name = "test-topic"
 message_to_send = "Hello from Python Confluent Kafka Producer!"
 
 
-def delivery_report(err, msg):
+def delivery_report(err: KafkaError | None, msg: Message) -> None:
     if err is not None:
         print(f"Message delivery failed: {err}")
     else:
@@ -21,7 +21,7 @@ def delivery_report(err, msg):
         print(f"Offset: {msg.offset()}")
 
 
-def main():
+def main() -> None:
     print(f"Configuring producer for Kafka broker at {bootstrap_servers}...")
 
     producer_conf = {

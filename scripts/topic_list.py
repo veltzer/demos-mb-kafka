@@ -9,7 +9,7 @@ import sys
 from confluent_kafka.admin import AdminClient
 
 
-def list_kafka_topics(bootstrap_servers):
+def list_kafka_topics(bootstrap_servers: str) -> None:
     """
     List all Kafka topics.
 
@@ -18,7 +18,7 @@ def list_kafka_topics(bootstrap_servers):
         Comma-separated list of broker addresses (host:port)
     """
     # Configure the client
-    conf = {'bootstrap.servers': bootstrap_servers}
+    conf: dict[str, str | int | float | bool] = {'bootstrap.servers': bootstrap_servers}
 
     # Create an Admin client
     admin_client = AdminClient(conf)
@@ -49,7 +49,7 @@ def list_kafka_topics(bootstrap_servers):
             print(f"    Part {part_id}: Leader={part.leader}, Reps={reps}")
 
 
-def list_topics_simple(bootstrap_servers):
+def list_topics_simple(bootstrap_servers: str) -> None:
     """
     List all Kafka topics in a simple format (just topic names).
 
@@ -58,7 +58,7 @@ def list_topics_simple(bootstrap_servers):
         Comma-separated list of broker addresses (host:port)
     """
     # Configure the client
-    conf = {'bootstrap.servers': bootstrap_servers}
+    conf: dict[str, str | int | float | bool] = {'bootstrap.servers': bootstrap_servers}
 
     # Create an Admin client
     admin_client = AdminClient(conf)
@@ -75,7 +75,7 @@ def list_topics_simple(bootstrap_servers):
         print(f"  - {topic_name}")
 
 
-def main():
+def main() -> None:
     # Default values
     bootstrap_servers = "localhost:29092"  # Use the external port we mapped
 

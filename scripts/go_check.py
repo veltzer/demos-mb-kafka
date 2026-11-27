@@ -32,19 +32,19 @@ EXPECT = re.compile(r'^// vet: expect "([^"]+)"')
 MAIN = re.compile(r"^func main\(", re.MULTILINE)
 
 
-def run(cmd, cwd=None):
+def run(cmd: list[str], cwd: str | None = None) -> tuple[int, str]:
     """ Run a command and return (exit code, combined output). """
     proc = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, check=False)
     return proc.returncode, proc.stdout + proc.stderr
 
 
-def read(path):
+def read(path: str) -> str:
     """ The text of a source file. """
     with open(path, encoding="utf-8") as handle:
         return handle.read()
 
 
-def module_root(directory):
+def module_root(directory: str) -> str | None:
     """ The nearest directory at or above `directory`, inside the repository,
     that has a go.mod; None when there is none. """
     current = os.path.abspath(directory)
@@ -58,7 +58,7 @@ def module_root(directory):
     return None
 
 
-def vet(path):
+def vet(path: str) -> tuple[int, str]:
     """ Run go vet on what `path` belongs to. """
     directory = os.path.dirname(path) or "."
     siblings = sorted(

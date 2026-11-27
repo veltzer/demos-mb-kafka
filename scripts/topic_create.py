@@ -9,8 +9,8 @@ import sys
 from confluent_kafka.admin import AdminClient, NewTopic
 
 
-def create_kafka_topic(bootstrap_servers,
-                       topic_name, num_parts=1, replication_factor=1):
+def create_kafka_topic(bootstrap_servers: str,
+                       topic_name: str, num_parts: int = 1, replication_factor: int = 1) -> None:
     """
     Create a Kafka topic with the specified configuration using
     confluent-kafka.
@@ -23,7 +23,7 @@ def create_kafka_topic(bootstrap_servers,
         replication_factor (int): Replication factor for the topic
     """
     # Configure the client
-    conf = {'bootstrap.servers': bootstrap_servers}
+    conf: dict[str, str | int | float | bool] = {'bootstrap.servers': bootstrap_servers}
 
     # Create an Admin client
     admin_client = AdminClient(conf)
@@ -45,7 +45,7 @@ def create_kafka_topic(bootstrap_servers,
         print(f"Partitions: {num_parts}, Rep Factor: {replication_factor}")
 
 
-def main():
+def main() -> None:
     # Default values
     bootstrap_servers = "localhost:29092"  # Use the external port we mapped
 

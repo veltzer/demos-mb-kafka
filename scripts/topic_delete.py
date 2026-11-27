@@ -9,7 +9,7 @@ import sys
 from confluent_kafka.admin import AdminClient
 
 
-def delete_kafka_topic(bootstrap_servers, topic_name, *, force=False):
+def delete_kafka_topic(bootstrap_servers: str, topic_name: str, *, force: bool = False) -> bool:
     """
     Delete a Kafka topic by name.
 
@@ -20,7 +20,7 @@ def delete_kafka_topic(bootstrap_servers, topic_name, *, force=False):
         force (bool): If True, skip confirmation prompt
     """
     # Configure the client
-    conf = {'bootstrap.servers': bootstrap_servers}
+    conf: dict[str, str | int | float | bool] = {'bootstrap.servers': bootstrap_servers}
 
     # Create an Admin client
     admin_client = AdminClient(conf)
@@ -55,7 +55,7 @@ def delete_kafka_topic(bootstrap_servers, topic_name, *, force=False):
     return True
 
 
-def list_available_topics(bootstrap_servers):
+def list_available_topics(bootstrap_servers: str) -> None:
     """
     Helper function to list available topics.
 
@@ -63,7 +63,7 @@ def list_available_topics(bootstrap_servers):
         bootstrap_servers (str):
         Comma-separated list of broker addresses (host:port)
     """
-    conf = {'bootstrap.servers': bootstrap_servers}
+    conf: dict[str, str | int | float | bool] = {'bootstrap.servers': bootstrap_servers}
     admin_client = AdminClient(conf)
     metadata = admin_client.list_topics(timeout=10)
 
@@ -76,7 +76,7 @@ def list_available_topics(bootstrap_servers):
         print(f"  - {topic_name}")
 
 
-def main():
+def main() -> None:
     # Default values
     bootstrap_servers = "localhost:29092"  # Use the external port we mapped
 
