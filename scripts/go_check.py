@@ -75,7 +75,7 @@ def vet(path):
     return run(["go", "vet", *package])
 
 
-def check(path):
+def check(path: str) -> list[str]:
     """ The complaints about one file; empty when it is fine. """
     expected = EXPECT.match(read(path))
     code, output = run(["gofmt", "-l", path])
@@ -103,7 +103,7 @@ def check(path):
 
 def main():
     """ main entry point """
-    complaints = []
+    complaints: list[str] = []
     for path in sys.argv[1:]:
         complaints.extend(check(path))
     for complaint in complaints:
