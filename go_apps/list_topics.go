@@ -213,11 +213,11 @@ func main() {
 	} else {
 		for topicName, topicDetail := range topics {
 			fmt.Printf("📁 Topic: %s\n", topicName)
-			
+
 			if showDetailed {
 				fmt.Printf("   Partitions: %d\n", topicDetail.NumPartitions)
 				fmt.Printf("   Replication Factor: %d\n", topicDetail.ReplicationFactor)
-				
+
 				// Get additional metadata
 				metadata, err := kafkaClient.GetTopicMetadata(topicName)
 				if err == nil {
@@ -230,7 +230,7 @@ func main() {
 							partition.ID, partition.Leader, partition.Replicas, partition.Isr)
 					}
 				}
-				
+
 				// Show topic configuration if available
 				if len(topicDetail.ConfigEntries) > 0 {
 					fmt.Printf("   Configuration:\n")
@@ -241,7 +241,7 @@ func main() {
 					}
 				}
 			} else {
-				fmt.Printf("   Partitions: %d, Replication Factor: %d\n", 
+				fmt.Printf("   Partitions: %d, Replication Factor: %d\n",
 					topicDetail.NumPartitions, topicDetail.ReplicationFactor)
 			}
 			fmt.Println()

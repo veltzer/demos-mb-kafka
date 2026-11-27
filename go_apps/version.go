@@ -28,10 +28,10 @@ func main() {
 	fmt.Printf("Connected to Kafka cluster\n")
 	fmt.Printf("Number of Brokers: %d\n", len(metadata.Brokers))
 	fmt.Printf("Number of Topics: %d\n", len(metadata.Topics))
-	
+
 	// Print broker information
 	for _, broker := range metadata.Brokers {
-		fmt.Printf("Broker ID: %d, Address: %s:%d\n", 
+		fmt.Printf("Broker ID: %d, Address: %s:%d\n",
 			broker.ID, broker.Host, broker.Port)
 	}
 }

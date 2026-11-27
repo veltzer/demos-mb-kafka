@@ -29,6 +29,19 @@ src_dirs = ["scripts", "config"]
 [processor.checker.ishellcheck]
 src_dirs = ["scripts", "config", "go_apps"]
 
+# ─── go ─────────────────────────────────────────────────────────────────────
+
+# Every Go file is formatted as gofmt formats it and passes go vet (see
+# scripts/go_check.py). go vet reads the Kafka client libraries go.mod
+# names, which Go fetches into its module cache the first time.
+[processor.checker.script.go]
+command = "scripts/go_check.py"
+required_tools = ["go", "gofmt"]
+src_dirs = ["go_apps"]
+src_extensions = [".go"]
+dep_inputs = ["go_apps/go.mod", "go_apps/go.sum"]
+sandbox_network = true
+
 # ─── lua ─────────────────────────────────────────────────────────────────────
 
 [processor.checker.iluacheck]
